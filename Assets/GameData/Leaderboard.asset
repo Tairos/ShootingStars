@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a582a7addc00b3240a29aa7c7615d110, type: 3}
+  m_Name: Leaderboard
+  m_EditorClassIdentifier: 
+  _leaderboard:
+  - Name: FakeUser
+    Seconds: 1600
+  - Name: FakeUser2
+    Seconds: 1700
+  - Name: FakeUser3
+    Seconds: 1800
+  - Name: FakeUser4
+    Seconds: 1900
+  - Name: FakeUser5
+    Seconds: 2000
+  - Name: FakeUser6
+    Seconds: 2100
+  - Name: FakeUser7
+    Seconds: 2200
+  - Name: FakeUser8
+    Seconds: 2300
+  - Name: FakeUser9
+    Seconds: 2400
+  - Name: FakeUser10
+    Seconds: 2500
+  - Name: FakeUser11
+    Seconds: 2600
+  - Name: FakeUser12
+    Seconds: 2700
+  - Name: FakeUser13
+    Seconds: 2800
+  - Name: FakeUser14
+    Seconds: 2900
+  - Name: FakeUser15
+    Seconds: 3000
