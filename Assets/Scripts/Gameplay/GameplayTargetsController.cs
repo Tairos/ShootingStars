@@ -2,13 +2,12 @@
 
 public class GameplayTargetsController : MonoBehaviour
 {
-    [SerializeField] int _loadTime = 6;
+    [SerializeField] GameConfig _gameConfig;
     [SerializeField] Target _targetPrefab;
     [SerializeField] Transform _parent;
     [SerializeField] Transform _topRightFrontAnchor;
     [SerializeField] Transform _botLeftBackAnchor;
     [SerializeField] float _padding = 1;
-    [SerializeField] float _playerDistancing = 2;
     [SerializeField] Transform _playerPosition;
 
     Vector3 _topRightFrontFromPlayer;
@@ -26,10 +25,10 @@ public class GameplayTargetsController : MonoBehaviour
 
     void Awake()
     {
-        var distancingVector = new Vector3(_playerDistancing, _playerDistancing, _playerDistancing);
+        var distancingVector = new Vector3(_gameConfig.PlayerDistancing, _gameConfig.PlayerDistancing, _gameConfig.PlayerDistancing);
         _topRightFrontFromPlayer = _playerPosition.position + distancingVector;
         _botLeftBacktFromPlayer = _playerPosition.position - distancingVector;
-        _scaleTime = _loadTime;
+        _scaleTime = _gameConfig.Countdown;
     }
 
     public void Instantiate(GameConfig _gameConfig)
@@ -52,7 +51,7 @@ public class GameplayTargetsController : MonoBehaviour
 
     void Update()
     {
-        if (_loadTime <= _scaleTime)
+        if (_gameConfig.Countdown <= _scaleTime)
         {
             return;
         }
@@ -135,7 +134,7 @@ public class GameplayTargetsController : MonoBehaviour
     ScalingData CreateRandomScalingData(float minScale, float maxScale)
     {
         var scale = Random.Range(minScale, maxScale);
-        var endAt = Random.Range(1, _loadTime);
+        var endAt = Random.Range(1, _gameConfig.Countdown);
         return new ScalingData
         {
             StartAt = Random.Range(0, endAt),

@@ -8,8 +8,10 @@ public class GameConfig : ScriptableObject
     [Header("Game")]
     public int Duration;
     public int MaxBounces = 2;
+    public int Countdown = 6;
+    public int PlayerDistancing = 5;
 
-    [Header("Cubes")]
+    [Header("Targets")]
     public int CubesAmountMin;
     public int CubesAmountMax;
 

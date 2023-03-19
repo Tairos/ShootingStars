@@ -8,6 +8,7 @@ public class Pistol : MonoBehaviour
     [SerializeField] GameplayController _gameplayController;
     [SerializeField] GameConfig _gameConfig;
     [SerializeField] Transform _transform;
+    [SerializeField] Transform _bulletsParent;
 
     float _nextBulletSpawnTime;
 
@@ -23,7 +24,7 @@ public class Pistol : MonoBehaviour
             return;
         }
         
-        var bullet = Instantiate(_gameConfig.BulletPrefab, _transform.position + (_transform.forward * _gameConfig.BulletSpawnDistance), _transform.rotation);
+        var bullet = Instantiate(_gameConfig.BulletPrefab, _transform.position + (_transform.forward * _gameConfig.BulletSpawnDistance), _transform.rotation, _bulletsParent);
         bullet.GetComponent<Rigidbody>().velocity = (_transform.forward * _gameConfig.BulletVelocity);
         _nextBulletSpawnTime = Time.time + _gameConfig.BulletSpawnDelay;
     }
