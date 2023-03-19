@@ -11,6 +11,11 @@ public class CountdownAnimation : MonoBehaviour
 
     int _count;
 
+    void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     public async void StartCountdown()
     {
         gameObject.SetActive(true);

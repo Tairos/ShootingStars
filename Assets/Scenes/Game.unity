@@ -1931,7 +1931,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1974,7 +1974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1539747764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3647,6 +3647,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main
       objectReference: {fileID: 0}
+    - target: {fileID: 5304164576090108751, guid: 6ba629f4c3b30104e87dfc71a0181738,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5304164576090108784, guid: 6ba629f4c3b30104e87dfc71a0181738,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3794,7 +3799,7 @@ PrefabInstance:
     - target: {fileID: 3936475577229378353, guid: efdffbc47deed6d428d5d43d525d49af,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000055887678
+      value: 0.0004681804
       objectReference: {fileID: 0}
     - target: {fileID: 3938156640184567116, guid: efdffbc47deed6d428d5d43d525d49af,
         type: 3}
@@ -3946,6 +3951,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Leaderboards
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963553616107762722, guid: efdffbc47deed6d428d5d43d525d49af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6271479801430558478, guid: efdffbc47deed6d428d5d43d525d49af,
         type: 3}

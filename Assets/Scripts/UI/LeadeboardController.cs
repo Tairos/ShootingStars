@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
 public class LeadeboardController : MonoBehaviour
 {
@@ -10,6 +9,10 @@ public class LeadeboardController : MonoBehaviour
 
     void OnEnable()
     {
+        foreach (var entry in _content)
+        {
+            Destroy((entry as Transform).gameObject);
+        }
         Load(_leaderboardService.Get());
     }
 
@@ -18,18 +21,13 @@ public class LeadeboardController : MonoBehaviour
         var dataCount = data.Count;
         for (var i = 0; i < dataCount; i++)
         {
-            var row = GeEntry(i);
-            row.SetValues(i, data[i].Name, data[i].Seconds);
+            var row = GeEntry();
+            row.SetValues(i+1, data[i].Name, data[i].Seconds);
         }
     }
 
-    LeaderboardEntry GeEntry(int i)
+    LeaderboardEntry GeEntry()
     {
-        if (_content.childCount < i)
-        {
-            return _content.GetChild(i).GetComponent<LeaderboardEntry>();
-        }
-
         return Instantiate(_leaderboardEntry, _content);
     }
 }
