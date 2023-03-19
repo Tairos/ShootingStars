@@ -7,7 +7,7 @@ public class LeaderboardEntry : MonoBehaviour
     [SerializeField] TMP_Text _name;
     [SerializeField] TMP_Text _seconds;
 
-    public void SetValues(int position, string name, int seconds)
+    public void SetValues(int position, string name, float seconds)
     {
         _position.text = position.ToString();
         _name.text = name;

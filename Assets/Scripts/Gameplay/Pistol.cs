@@ -31,6 +31,6 @@ public class Pistol : MonoBehaviour
 
     void OnDestroy()
     {
-        _actionBaseController.activateAction.action.performed += Trigger;
+        _actionBaseController.activateAction.action.performed -= Trigger;
     }
 }

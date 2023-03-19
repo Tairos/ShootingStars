@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
 using TMPro;
-using System;
 
 public class CountdownAnimation : MonoBehaviour
 {
@@ -11,8 +10,6 @@ public class CountdownAnimation : MonoBehaviour
     [SerializeField] GameConfig _gameConfig;
 
     int _count;
-
-    public event Action CountdownFinished;
 
     public async void StartCountdown()
     {

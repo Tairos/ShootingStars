@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Duration: 60
   MaxBounces: 2
-  CubesAmountMin: 500
-  CubesAmountMax: 1000
+  Countdown: 6
+  PlayerDistancing: 5
+  CubesAmountMin: 20
+  CubesAmountMax: 40
   TargetScaleMin: 0.5
   TargetScaleMax: 1.5
   Colors:

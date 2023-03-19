@@ -10,5 +10,5 @@ public interface ILeaderboardService
 [Serializable]
 public struct LeaderboardData {
     public string Name;
-    public int Seconds;
+    public float Seconds;
 }
