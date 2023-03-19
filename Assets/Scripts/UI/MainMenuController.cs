@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -7,12 +8,15 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] PlayableDirector _showMenuDirector;
     [SerializeField] PlayableDirector _hideMenuDirector;
 
-    public void OnPlayClicked()
+    public event Action OnPlayClicked;
+
+    public void PlayClicked()
     {
         Hide();
+        OnPlayClicked.Invoke();
     }
 
-    public void OnQuitClicked()
+    public void QuitClicked()
     {
         Application.Quit();
 #if UNITY_EDITOR

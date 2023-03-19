@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Leaderboard", menuName = "My Assets/ScriptableObjectLeaderboardService")]
+[CreateAssetMenu(fileName = "Leaderboard", menuName = "ShootingStars/ScriptableObjectLeaderboardService")]
 public class ScriptableObjectLeaderboardService : ScriptableObject, ILeaderboardService
 {
     [SerializeField] List<LeaderboardData> _leaderboard = new List<LeaderboardData>();
