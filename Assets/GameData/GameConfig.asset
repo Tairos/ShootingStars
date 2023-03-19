@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96a491ad51c28f49a24c9fe8f5bed80, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
+  Duration: 60
+  MaxBounces: 2
   CubesAmountMin: 500
   CubesAmountMax: 1000
   TargetScaleMin: 0.5
   TargetScaleMax: 1.5
-  Duration: 60
   Colors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
@@ -26,3 +27,8 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 1, a: 1}
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  BulletSpawnDelay: 0.2
+  BulletVelocity: 10
+  BulletSpawnDistance: 0.2
+  BulletPrefab: {fileID: 3958906414677505225, guid: fdf6babb23b1ead4495d06099e93bf1b,
+    type: 3}

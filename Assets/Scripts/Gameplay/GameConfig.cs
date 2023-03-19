@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class GameConfig : ScriptableObject
 {
+    [Header("Game")]
+    public int Duration;
+    public int MaxBounces = 2;
+
+    [Header("Cubes")]
     public int CubesAmountMin;
     public int CubesAmountMax;
 
     public float TargetScaleMin;
     public float TargetScaleMax;
 
-    public int Duration;
-
     public Color[] Colors;
+
+    [Header("Pistol & Bullets")]
+    public float BulletSpawnDelay;
+    public float BulletVelocity;
+    public float BulletSpawnDistance;
+    public GameObject BulletPrefab;
 
 
 #if UNITY_EDITOR
