@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cff5ce94ba891438b223543f7e4474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleLerpInterpolation: 0.1

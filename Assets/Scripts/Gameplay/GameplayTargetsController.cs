@@ -14,28 +14,67 @@ public class GameplayTargetsController : MonoBehaviour
     Vector3 _topRightFrontFromPlayer;
     Vector3 _botLeftBacktFromPlayer;
 
+    Target[] _targets;
+    ScalingData[] _scales;
+    float _scaleTime;
+
+    struct ScalingData {
+        public float StartAt;
+        public float EndAt;
+        public float FinalScale;
+    }
+
     void Awake()
     {
         var distancingVector = new Vector3(_playerDistancing, _playerDistancing, _playerDistancing);
         _topRightFrontFromPlayer = _playerPosition.position + distancingVector;
         _botLeftBacktFromPlayer = _playerPosition.position - distancingVector;
+        _scaleTime = _loadTime;
     }
 
     public void Instantiate(GameConfig _gameConfig)
     {
         var amount = Random.Range(_gameConfig.CubesAmountMin, _gameConfig.CubesAmountMax);
+        _targets = new Target[amount];
+        _scales = new ScalingData[amount];
         for (var i = 0; i < amount; i++)
         {
-            var newTarget = Instantiate(_targetPrefab, GetRandomPosition(), GetRandomRotation(), _parent);
-            var scale = Random.Range(_gameConfig.TargetScaleMin, _gameConfig.TargetScaleMax);
-            newTarget.transform.localScale = new Vector3(scale, scale, scale);
-
+            var newTarget = Instantiate(_targetPrefab, CreateRandomPosition(), GetRandomRotation(), _parent);
             var colorIndex = Random.Range(0, _gameConfig.Colors.Length);
             newTarget.SetColor(_gameConfig.Colors[colorIndex]);
+            newTarget.transform.localScale = Vector3.zero;
+
+            _targets[i] = newTarget;
+            _scales[i] = CreateRandomScalingData(_gameConfig.TargetScaleMin, _gameConfig.TargetScaleMax);
+        }
+        _scaleTime = 0;
+    }
+
+    void Update()
+    {
+        if (_loadTime <= _scaleTime)
+        {
+            return;
+        }
+
+        _scaleTime += Time.deltaTime;
+        var scalesDataLength = _scales.Length;
+        for (var i = 0; i < scalesDataLength; i++)
+        {
+            var scaleData = _scales[i];
+            if (_scaleTime < scaleData.StartAt || _scaleTime > scaleData.EndAt)
+            {
+                continue;
+            }
+
+            var duration = scaleData.EndAt - scaleData.StartAt;
+            var completedFraction = (_scaleTime - scaleData.StartAt) / duration;
+            completedFraction = Mathf.Min(completedFraction, 1);
+            _targets[i].transform.localScale = Vector3.one * completedFraction * scaleData.FinalScale;
         }
     }
 
-    public Vector3 GetRandomPosition()
+    public Vector3 CreateRandomPosition()
     {
         var x = Random.Range(_botLeftBackAnchor.position.x + _padding, _topRightFrontAnchor.position.x - _padding);
         var y = Random.Range(_botLeftBackAnchor.position.y + _padding, _topRightFrontAnchor.position.y - _padding);
@@ -92,6 +131,19 @@ public class GameplayTargetsController : MonoBehaviour
 
         return position;
     }
+
+    ScalingData CreateRandomScalingData(float minScale, float maxScale)
+    {
+        var scale = Random.Range(minScale, maxScale);
+        var endAt = Random.Range(1, _loadTime);
+        return new ScalingData
+        {
+            StartAt = Random.Range(0, endAt),
+            EndAt = endAt,
+            FinalScale = scale,
+        };
+    }
+
 
     public Quaternion GetRandomRotation()
     {
